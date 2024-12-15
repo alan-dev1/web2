@@ -23,26 +23,7 @@
             </ul>
         </nav>
     </header>
-
-    <!-- Carrossel de Imagens -->
-    <section id="home" class="carousel">
-        <div class="carousel-container">
-            <div class="carousel-slide">
-                <img src="proc01.jpg" alt="Imagem 1">
-            </div>
-            <div class="carousel-slide">
-                <a href="images/proc01.jpg" target="_blank">
-					<img src="images/img1.jpg" alt="Imagem 1">
-				</a>
-            </div>
-            <div class="carousel-slide">
-                <img src="img3.jpg" alt="Imagem 3">
-            </div>
-        </div>
-        <button class="prev" onclick="prevSlide()">&#10094;</button>
-        <button class="next" onclick="nextSlide()">&#10095;</button>
     </section>
-
     <section id="sobre" class="about">
         <h2>Sobre a Clínica</h2>
         <p>Somos uma clínica especializada em tratamentos estéticos para promover a saúde, beleza e o bem-estar de nossos clientes.</p>
@@ -63,12 +44,14 @@
             <p>Massagens e tratamentos para a saúde do corpo.</p>
         </div>
     </section>
-
     <section id="agendamento" class="appointment">
         <h2>Agende seu Atendimento</h2>
-        <form action="processar_atendimento.php" method="POST">
+        <form action="processar_atendimento" method="POST">
             <label for="cliente_nome">Nome do Cliente:</label><br>
             <input type="text" id="cliente_nome" name="cliente_nome" required><br><br>
+    
+            <label for="cpf_cliente">CPF do Cliente:</label><br>
+            <input type="text" id="cpf_cliente" name="cpf_cliente" pattern="\d{11}" title="Digite um CPF válido com 11 números." required><br><br>
     
             <label for="data_atendimento">Data e Hora do Atendimento:</label><br>
             <input type="datetime-local" id="data_atendimento" name="data_atendimento" required><br><br>
@@ -76,7 +59,7 @@
             <input type="submit" value="Cadastrar Atendimento">
         </form>
     </section>
-
+    
     <section id="contato" class="contact">
         <h2>Contato e Localização</h2>
         <p>Visite-nos:</p>

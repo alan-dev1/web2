@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Agendamentos</title>
+</head>
+<body>
+    <h1>Agendamentos</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Data do Atendimento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (agendamentos.length > 0) { %>
+                <% agendamentos.forEach(agendamento => { %>
+                    <tr>
+                        <td><%= agendamento.id %></td>
+                        <td><%= agendamento.cliente_nome %></td>
+                        <td><%= agendamento.cpf_cliente %></td>
+                        <td><%= agendamento.data_atendimento %></td>
+                        <td>
+                            <form action="/excluir_agendamento/<%= agendamento.id %>" method="POST">
+                                <button type="submit">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="5">Nenhum agendamento encontrado.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <a href="/">Voltar</a>
+</body>
+</html>
